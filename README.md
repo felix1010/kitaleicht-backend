@@ -12,4 +12,10 @@ pip install flask
 安装 flask-cors
 pip install flask-cors
 
+安装 psycopg2 (连接 postgre)
+pip install psycopg2-binary
+
 Port: 5000
+
+数据库初始化工具
+Flask-Migrate
