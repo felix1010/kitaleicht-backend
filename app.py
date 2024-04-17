@@ -1,11 +1,12 @@
 from flask import Flask, request, jsonify
-from db import connect_to_db
+from db import connect_to_postgres, connect_to_mysql
 from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app)  # 允许所有源的请求访问该应用
-connection = connect_to_db()
 
+# connection = connect_to_postgres()
+connection = connect_to_mysql()
 
 @app.route('/')
 def hello():
@@ -14,6 +15,9 @@ def hello():
 @app.route('/getUserByEmail', methods=['GET'])
 def get_user_by_email():
     email = request.args.get('email')
+    if not email:
+        return jsonify({'error': 'Missing email parameter'}), 400
+    
     cursor = connection.cursor()
     
     try:
@@ -30,7 +34,7 @@ def get_user_by_email():
             }
             return jsonify(user_data)
         else:
-            return jsonify({'message': 'User not found'})
+            return jsonify({'error': 'User not found'})
     except Exception as e:
         print("Error fetching user data:", e)
     finally:
