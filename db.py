@@ -1,28 +1,11 @@
-
-import psycopg2
 import mysql.connector
 from mysql.connector import Error
-
-# connect to postgre
-def connect_to_postgres():
-    try:
-        connection = psycopg2.connect(
-            user="postgres",
-            password="admin",
-            host="localhost",
-            port="5432",
-            database="kitaleicht"
-        )
-        return connection
-    except Exception as e:
-        print("Error connecting to PostgreSQL database:", e)
-
 
 def connect_to_mysql():
     connection = None
     try:
         connection = mysql.connector.connect(
-            host="localhost",
+            host="db-mysql",
             database="kitaleicht",
             user="root",
             password="root"

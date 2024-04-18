@@ -1,11 +1,10 @@
 from flask import Flask, request, jsonify
-from db import connect_to_postgres, connect_to_mysql
+from db import connect_to_mysql
 from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app)  # 允许所有源的请求访问该应用
 
-# connection = connect_to_postgres()
 connection = connect_to_mysql()
 
 @app.route('/')

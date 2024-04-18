@@ -1,0 +1,9 @@
+.git
+.vscode
+*.pyc
+_pycache_
+sql_scripts
+venv
+.gitignore
+Jenkinsfile
+README.md
