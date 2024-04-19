@@ -25,3 +25,7 @@ Port: 5000
 
 数据库初始化工具
 Flask-Migrate
+
+构建
+如果发现了已经有的服务镜像已经过期或者需要更新，它会自动按照你的 Dockerfile 来重新构建这些镜像，确保它们是最新的
+docker-compose up --build

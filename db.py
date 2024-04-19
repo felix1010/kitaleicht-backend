@@ -5,7 +5,7 @@ def connect_to_mysql():
     connection = None
     try:
         connection = mysql.connector.connect(
-            host="db-mysql",
+            host="mysql",
             database="kitaleicht",
             user="root",
             password="root"
@@ -17,9 +17,6 @@ def connect_to_mysql():
     
     return connection
 
-def close_mysql_connection(connection):
-    if connection:
-        connection.close()
-        print("MySQL 连接已关闭")
+
 
 
