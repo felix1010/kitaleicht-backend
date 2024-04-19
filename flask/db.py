@@ -5,7 +5,7 @@ def connect_to_mysql():
     connection = None
     try:
         connection = mysql.connector.connect(
-            host="localhost",
+            host="mysql",
             database="kitaleicht",
             user="root",
             password="root"
